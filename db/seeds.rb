@@ -8,6 +8,7 @@
 
 facility = Facility.create!(name: "Blue Alps Ski Camp")
 
+
 patient = Patient.create!({
                                first_name: Faker::Name.first_name,
                                last_name: Faker::Name.last_name,
@@ -46,7 +47,7 @@ chronic_condition = patient.chronic_conditions.create!({
                                                  description: "Essential (primary) hypertension"
                                              })
 
-frequency_unit = OrderFrequency.create!({value: "q4", frequency_unit: :hour  })
+frequency_unit = OrderFrequency.create!({value: "q4", frequency_unit: :hr  })
 
 medication = patient.medications.create!({
                                             name: "Acetaminophen",
