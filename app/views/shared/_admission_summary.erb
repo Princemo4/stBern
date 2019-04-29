@@ -1,0 +1,16 @@
+<p class="text-justify">
+  This <%= pluralize(@patient.age, "years")%> old <%= @patient.gender %> was admitted to <%= @patient.facility.name %>
+  on <%= datetime_sentence(@admission.moment) %> due to <%= MedicalDiagnosis.explain_in_words(@admission.diagnoses) %>.
+  The observed symptoms on admission were <%= @admission.symptoms.pluck(:description).to_sentence %>.
+  <%= @admission.observations.pluck(:description).to_sentence %>.
+  <br><br>
+  Upon asking about known allergies, the patient
+  disclosed <%= @patient.allergies.pluck(:description).to_sentence %> allergy. Upon asking about chronic
+  conditions, the patient disclosed
+  <%= MedicalDiagnosis.explain_in_words(@patient.chronic_conditions) %>. The patient was administered with
+  <%= MedicationOrder.explain_in_words(@patient.medications) %>
+  <br><br>
+  The staff performed <%= DiagnosticProcedure.explain_in_words(@patient.diagnostic_procedures)%>, revealing
+  <%= MedicalDiagnosis.explain_in_words(@patient.diagnoses) %>. Our team proceeded to
+  <%= Treatment.explain_in_words(@patient.treatments) %>.
+</p>

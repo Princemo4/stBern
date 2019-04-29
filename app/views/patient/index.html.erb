@@ -1,6 +1,35 @@
-<h1>Patients</h1>
 
-<% @patients.each do |patient| %>
-  <h3><%= link_to patient.first_name, patient_path(patient) %></h3>
+<div class="container">
+  <div class=" form-header">
+    <h3 class="form-title">Patients List </h3>
+    <hr>
+  </div>
+  <table class="table">
+    <tr>
+      <th>Medical Record (MR)</th>
+      <th>Patient First Name</th>
+      <th>Patient Last Name</th>
+      <th>Faciltiy</th>
+      <th>Admissions Date</th>
+    </tr>
+    <% @patients.each do |patient| %>
+        <tr>
+          <td>
+            <%= link_to patient.mr, patient_path(patient), class: "btn btn-default btn-xs" %>
+          </td>
+          <td>
+            <%= patient.first_name %>
+          <td>
+            <%= patient.last_name %>
+          </td>
+          <td>
+            <%= patient.facility.name %>
+          </td>
+          <td>
+            <%= patient.admission.moment.to_date %>
+          </td>
+        </tr>
+    <% end %>
 
-<% end %>
+  </table>
+</div>
