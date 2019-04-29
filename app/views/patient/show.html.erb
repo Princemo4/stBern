@@ -1,0 +1,33 @@
+<h1>Patient Details</h1>
+
+First Name: <%= @patient.first_name %>
+Middle Name: <%= @patient.middle_name %>
+Last Name: <%= @patient.last_name %>
+Patient Medical Record (MR): <%= @patient.mr %>
+
+Patient Age:  <%= @patient.dob %>
+Patient Gender:  <%= @patient.gender %>
+<br>
+Facility: <%= @patient.facility.name %>
+
+<br>
+Admission Date: <%= @admission.moment %>
+
+due to: <%= @admission.diagnoses.pluck(:description, :code).to_sentence %>
+
+Admission symptoms: <%= @admission.symptoms.pluck(:description).to_sentence %>
+
+<br>
+Observation: <%= @admission.observations.pluck(:description).to_sentence %>
+<br>
+Allergies: <%= @patient.allergies.pluck(:description).to_sentence %>
+<br>
+Chronic: <%= @patient.chronic_conditions.pluck(:description, :code).to_sentence %>
+<br>
+Medication: <%= @patient.medications.pluck(:name, :dosage) %>
+<br>
+Diag procedures:  <%= @patient.diagnostic_procedures.pluck(:description, :moment) %>
+<br>
+Diagnoses: <%= @patient.diagnoses.to_a %>
+<br>
+Treatment: <%= @patient.treatments.to_a %>

@@ -14,7 +14,8 @@ patient = Patient.create!({
                                middle_name: Faker::Name.middle_name,
                                dob: Faker::Date.birthday,
                                gender: :female,
-                               facility: facility
+                               facility: facility,
+                               mr: rand(20000...30000)
                            })
 
 
@@ -31,8 +32,8 @@ allergy = patient.allergies.create!({ description: "Penicillin" })
 
 diagnosis = admission.admission_diagnoses.create!({
                                           coding_system: "ICD10",
-                                          code: "S42.2",
-                                          description: "Fracture of upper end of humerus"
+                                          code: "M25.5",
+                                          description: "Pain in Joint"
                                         })
 
 symptoms = admission.symptoms.create!({ description: "Pain, swelling, limited movement of right shoulder"})
@@ -60,3 +61,14 @@ diag_procedures = patient.diagnostic_procedures.create!({
                                                           description: "exploratory radiography",
                                                           moment: 2.hours.ago
                                                         })
+
+patient_diag = patient.diagnoses.create!({
+                                           coding_system: "ICD10",
+                                           code: "S42.8",
+                                           description: "Fracture of other parts of shoulder and upper arm"
+                                         })
+
+treatment = patient.treatments.create!({
+                                         description: "temporary bracing right shoulder",
+                                         necessity: "restrict the motion"
+                                       })

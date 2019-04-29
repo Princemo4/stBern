@@ -4,4 +4,8 @@ class MedicationOrder < ApplicationRecord
 
   enum mass_unit: {mg: 0}
   enum medication_route: {PO: 0, IM: 1, SC: 2}
+
+  #TODO :  create a method to describe entire medication
+  #
+
 end

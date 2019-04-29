@@ -8,6 +8,11 @@ class Patient < ApplicationRecord
   has_many :diagnostic_procedures
   has_many :treatments
 
+  alias_attribute :diagnoses, :patient_diagnoses
+
   enum gender: {male: 0, female: 1, other: 2}
 
+
+  #TODO :   create methods for age
+  #
 end

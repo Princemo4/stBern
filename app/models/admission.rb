@@ -6,4 +6,7 @@ class Admission < ApplicationRecord
 
   alias_attribute :diagnoses, :admission_diagnoses
 
+  #TODO : create methods for date and time
+  #
+
 end
