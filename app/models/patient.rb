@@ -13,6 +13,9 @@ class Patient < ApplicationRecord
   enum gender: {male: 0, female: 1, other: 2}
 
 
-  #TODO :   create methods for age
-  #
+  def age
+    age = (DateTime.now - self.dob.to_date) / 365.25
+    return age.round
+  end
+
 end
