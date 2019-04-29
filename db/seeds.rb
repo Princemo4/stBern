@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-facility = Facility.create!(name: Faker::Company.name)
+facility = Facility.create!(name: "Blue Alps Ski Camp")
 
 patient = Patient.create!({
                                first_name: Faker::Name.first_name,

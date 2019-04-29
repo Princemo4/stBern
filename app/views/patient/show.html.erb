@@ -1,33 +1,91 @@
-<h1>Patient Details</h1>
+<div class="container">
+  <div class=" form-header">
+    <h3 class="form-title">Emergency Transfer Summary (Form 34L-D) </h3>
+    <hr>
+  </div>
+  <div class="col-md-12">
+    <div class="row bordered">
+      <h3> Transferring Facility</h3>
+    </div>
+    <div class="row bordered">
+      <div class="col-md-4 bordered">
+        <strong>Name</strong>
+        <br>
+        <%= @patient.facility.name %>
+      </div>
+    </div>
+  </div>
 
-First Name: <%= @patient.first_name %>
-Middle Name: <%= @patient.middle_name %>
-Last Name: <%= @patient.last_name %>
-Patient Medical Record (MR): <%= @patient.mr %>
+  <div class="col-md-12">
+    <div class="row bordered">
+      <h3> Patient Information </h3>
+    </div>
+    <div class="row bordered">
+      <div class="col-md-2 bordered">
+        <strong>First Name</strong>
+        <br>
+        <%= @patient.first_name %>
+      </div>
+      <div class="col-md-2 bordered">
+        <strong>Middle Name</strong>
+        <br>
+        <%= @patient.middle_name %>
+      </div>
+      <div class="col-md-2 bordered">
+        <strong>Last Name</strong>
+        <br>
+        <%= @patient.last_name %>
+      </div>
+      <div class="col-md-2 bordered">
+        <strong>Medical Record (MR)</strong>
+        <br>
+        <%= @patient.mr%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row bordered">
+      <h3> Summary </h3>
+    </div>
+    <div class="row bordered">
+      <div class="col-md-12 bordered">
+        Patient Age:  <%= @patient.dob %>
+        Patient Gender:  <%= @patient.gender %>
+        <br>
+        Facility: <%= @patient.facility.name %>
 
-Patient Age:  <%= @patient.dob %>
-Patient Gender:  <%= @patient.gender %>
-<br>
-Facility: <%= @patient.facility.name %>
+        <br>
+        Admission Date: <%= @admission.moment %>
 
-<br>
-Admission Date: <%= @admission.moment %>
+        due to: <%= @admission.diagnoses.pluck(:description, :code).to_sentence %>
 
-due to: <%= @admission.diagnoses.pluck(:description, :code).to_sentence %>
+        Admission symptoms: <%= @admission.symptoms.pluck(:description).to_sentence %>
 
-Admission symptoms: <%= @admission.symptoms.pluck(:description).to_sentence %>
+        <br>
+        Observation: <%= @admission.observations.pluck(:description).to_sentence %>
+        <br>
+        Allergies: <%= @patient.allergies.pluck(:description).to_sentence %>
+        <br>
+        Chronic: <%= @patient.chronic_conditions.pluck(:description, :code).to_sentence %>
+        <br>
+        Medication: <%= @patient.medications.pluck(:name, :dosage) %>
+        <br>
+        Diag procedures:  <%= @patient.diagnostic_procedures.pluck(:description, :moment) %>
+        <br>
+        Diagnoses: <%= @patient.diagnoses.to_a %>
+        <br>
+        Treatment: <%= @patient.treatments.to_a %>
 
-<br>
-Observation: <%= @admission.observations.pluck(:description).to_sentence %>
-<br>
-Allergies: <%= @patient.allergies.pluck(:description).to_sentence %>
-<br>
-Chronic: <%= @patient.chronic_conditions.pluck(:description, :code).to_sentence %>
-<br>
-Medication: <%= @patient.medications.pluck(:name, :dosage) %>
-<br>
-Diag procedures:  <%= @patient.diagnostic_procedures.pluck(:description, :moment) %>
-<br>
-Diagnoses: <%= @patient.diagnoses.to_a %>
-<br>
-Treatment: <%= @patient.treatments.to_a %>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
