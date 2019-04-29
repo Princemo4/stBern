@@ -1,0 +1,3 @@
+class AdmissionDiagnosis < MedicalDiagnosis
+
+end
